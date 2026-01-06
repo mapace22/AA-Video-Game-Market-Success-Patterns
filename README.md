@@ -1,61 +1,39 @@
-# proyecto_6_patrones
-Patrones de éxito en Tienda de videojuegos "Line Ice" | Limpieza, manipulación y transformación | Detectar proyectos prometedores | Planificar estrategia de Marketing
+# 🎮 Video Game Industry: Identifying Success Patterns for Market Strategy
 
-# PROYECTO: ¡A JUGAR SE HA DICHO!
+## 🎯 Project Overview
+Working as a Data Analyst for the online store "Ice," this project focuses on identifying the variables that determine a video game's success. By analyzing historical data on sales, critic/user reviews, and platforms, the goal was to pinpoint "big winners" and plan a data-driven advertising campaign for 2017.
 
-## RESUMEN DEL PROYECTO
-Este proyecto se enfoca en el análisis de datos de "Tienda line Ice", una plataforma global de venta de videojuegos. 
-El objetivo principal es identificar patrones de éxito en el mercado de videojuegos a partir de un conjunto de datos público que incluye reseñas, géneros, plataformas e historial de ventas hasta 2016.
-La misión es planificar una campaña publicitaria para el año 2017, adquiriendo experiencia en la limpieza, manipulación y transformación de datos. 
-Se explora también la clasificación ESRB de los juegos para entender las audiencias.
+## 🛠️ Data Engineering & Wrangling
+The dataset required significant preprocessing to ensure analytical integrity across multiple regions (NA, EU, JP):
+* **Standardization:** Converted all column names to `snake_case`.
+* **Type Conversion:** Handled the `TBD` (To Be Determined) values in user scores by treating them as nulls to allow for numerical calculation.
+* **Feature Engineering:** Created a `total_sales` metric by aggregating revenue across all global regions.
+* **Integrity Management:** Investigated and resolved missing values in release years and ESRB ratings to minimize bias in temporal analysis.
 
-## OBJETIVO
-- El objetivo principal es identificar patrones de éxito en el mercado de los videojuegos que permitan a la empresa:
-  - Detectar proyectos de juegos prometedores.
-  - Planificar estrategias de marketing más efectivas para el año 2017.
 
-## METODOLOGÍA DE ANÁLISIS
-### 1. DESCRIPCIÓN DE LOS DATOS
-- Se trabajó con un único conjunto de datos que incluye información sobre:
-  - Juegos
-  - Plataformas
-  - Año de lanzamiento
-  - Género
-  - Ventas por región (Norteamérica, Europa, Japón y otras)
-  - Puntuación de críticos y usuarios,
-  - Clasificación ESRB.
+## 📊 Strategic Market Analysis
 
-### 2. PREPROCESAMIENTO DE DATOS
-- Reemplazo y Conversión:
-  - Se limpiaron los datos
-  - Se ajustaron los tipos de datos de las columnas para un análisis más eficiente
-  - Se gestionaron los valores ausentes.
+### 1. Platform Lifecycle & Transition
+I analyzed the rise and fall of gaming platforms (Xbox, PlayStation, PC, etc.), identifying that platforms typically have a **10-year lifecycle**, with a 5-year peak. This allowed for the identification of "dying" vs. "emerging" platforms for the 2017 budget.
 
-- Valores Ausentes: Se identificaron y trataron los valores nulos en las columnas Name, Genre, Year_of_Release, Critic_Score, User_Score y Rating.
+### 2. Regional User Profiling
+A key part of the project involved creating distinct profiles for different markets:
+* **North America & Europe:** Driven by Action/Shooter genres and mature ESRB ratings.
+* **Japan:** Highly influenced by Role-Playing (RPG) games and handheld platforms.
 
-- Cálculo de Ventas Totales: Se calculó el total de ventas globales sumando las ventas de cada región.
+### 3. Review Impact Analysis
+Using scatter plots and correlation matrices, I evaluated how much professional critic scores vs. user reviews actually drive sales performance.
 
-### 3. ANÁLISIS DE DATOS
-- Análisis Temporal: Se examinó la distribución de lanzamientos de juegos a lo largo de los años.
-- Análisis de Plataformas: Se estudiaron las ventas por plataforma, sus ciclos de vida y su impacto en el mercado.
-- Perfil del Usuario por Región: Se identificaron las plataformas principales, géneros y clasificaciones ESRB más populares en Norteamérica, Europa y Japón.
-- Visualizaciones: Se utilizaron diagramas de caja y gráficos de dispersión para visualizar la distribución y la relación entre variables como ventas, puntuación y año de lanzamiento.
+## 🧪 Statistical Hypothesis Testing
+Two independent sample **t-tests** were conducted with a significance level ($\alpha$) of **0.05**:
+1.  **Platform Comparison:** Testing if the average user ratings for **Xbox One** and **PC** differ.
+2.  **Genre Comparison:** Testing if average user ratings for **Action** and **Sports** genres are distinct.
 
-### 4. PRUEBA DE HIPÓTESIS
-Se realizaron pruebas de hipótesis para determinar si:
-Las calificaciones promedio de los usuarios para las plataformas Xbox One y PC son diferentes.
-Las calificaciones promedio de los usuarios para los géneros de Acción y Deportes son diferentes.
-Se estableció un umbral de significancia (alfa) y se formuló una hipótesis nula y una alternativa para cada prueba.
+## 🛠️ Tech Stack
+* **Language:** Python 3.12.1
+* **Analysis:** Pandas, NumPy.
+* **Visualization:** Matplotlib, Seaborn (Boxplots, Scatter plots, Area charts).
+* **Statistics:** SciPy.
 
-## CONCLUSIONES PRINCIPALES
-El proyecto fue aprobado, lo que indica un análisis correcto y exhaustivo.
-Se identificaron patrones de éxito en el mercado de videojuegos.
-Se lograron conclusiones sólidas para planificar una campaña publicitaria efectiva para el año 2017, incluyendo la identificación de plataformas y géneros clave por región.
-
-## TECNOLOGÍAS UTILIZADAS
-Python
-Pandas
-NumPy
-Matplotlib
-
-Jupyter Notebook
+## 📈 Final Conclusions
+The analysis successfully identified that while global sales are concentrated in high-performance consoles, Japan requires a specialized marketing approach. For 2017, the recommendation focuses on prioritizing emerging platforms mid-way through their lifecycle and tailoring genre-specific ads based on regional preferences.
